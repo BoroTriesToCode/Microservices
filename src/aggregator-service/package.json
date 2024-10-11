@@ -1,0 +1,19 @@
+{
+  "name": "aggregator-service",
+  "version": "1.0.0",
+  "main": "aggregatorConsumer.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "express": "^4.19.2",
+    "kafkajs": "^1.15.0",
+    "mongoose": "^5.10.9",
+    "redis": "^3.0.2",
+    "uuid": "^10.0.0"
+  }
+}

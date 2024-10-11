@@ -1,0 +1,163 @@
+helm upgrade --install ingress-nginx ingress-nginx/ingress-nginx
+helm install my-project ./my-project
+
+kubectl apply -f ./helm/ingress.yaml
+
+_______________________________________________________________
+
+Kafka UI port forwarding:
+
+kubectl port-forward kafka-ui-7fdc7bdf9f-fw4tw  8080:8080
+
+________________________________________________________________
+
+helm dependency update ./my-project
+
+_______________________________________________________________
+
+
+helm uninstall my-project
+helm uninstall ingress-nginx
+
+_______________________________________________________________
+
+Redis bash:
+
+kubectl exec -it <redis-pod>  -- /bin/bash
+redis-cli
+keys *
+
+
+
+
+
+
+
+
+
+_______________________________________________________________
+
+_______________________________________________________________
+
+helm install order-mongodb ./helm/mongodb -f ./helm/mongodb/values-order-mongodb.yaml
+helm install customer-mongodb ./helm/mongodb -f ./helm/mongodb/values-customer-mongodb.yaml
+helm install product-mongodb ./helm/mongodb -f ./helm/mongodb/values-product-mongodb.yaml
+
+helm install kafka ./helm/kafka
+helm install kafka-ui ./helm/kafka-ui
+helm install redis ./helm/redis
+
+helm install customer-service ./helm/customer-service
+helm install product-service ./helm/product-service
+helm install aggregator-service ./helm/aggregator-service
+helm install order-service ./helm/order-service
+
+kubectl apply -f ./helm/ingress.yaml
+
+
+
+
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo update
+helm upgrade --install ingress-nginx ingress-nginx/ingress-nginx
+
+
+
+__________
+
+helm upgrade --install order-service ./order-service
+helm upgrade --install customer-service ./customer-service
+helm upgrade --install product-service ./product-service
+helm upgrade --install aggregator-service ./aggregator-service
+helm upgrade --install kafka ./kafka
+helm upgrade --install redis ./redis
+helm upgrade --install mongodb ./mongodb
+
+helm upgrade  order-service ./order-service
+helm upgrade  customer-service ./customer-service
+helm upgrade  product-service ./product-service
+helm upgrade  aggregator-service ./aggregator-service
+helm upgrade  kafka ./kafka
+helm upgrade  redis ./redis
+
+____________________________
+
+
+helm uninstall aggregator-service 
+helm uninstall order-service 
+helm uninstall customer-service 
+helm uninstall product-service 
+
+
+
+helm uninstall order-mongodb 
+helm uninstall customer-mongodb 
+helm uninstall product-mongodb 
+
+helm uninstall kafka 
+helm uninstall kafka-ui 
+helm uninstall redis 
+helm uninstall mongodb 
+
+helm uninstall ingress-nginx ingress-nginx/ingress-nginx
+
+__________
+
+$POD_NAME = kubectl get pods --namespace default -l "app.kubernetes.io/name=kafka-ui" -o jsonpath="{.items[0].metadata.name}"
+
+
+$CONTAINER_PORT = kubectl get pod --namespace default $POD_NAME -o jsonpath="{.spec.containers[0].ports[0].containerPort}"
+
+kubectl --namespace default port-forward $POD_NAME 8080:$CONTAINER_PORT
+
+
+__________________________
+
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/main/deploy/static/provider/cloud/deploy.yaml
+
+
+__________
+
+
+helm install order-mongodb ./mongodb -f ./mongodb/values-order-mongodb.yaml
+helm install customer-mongodb ./mongodb -f ./mongodb/values-customer-mongodb.yaml
+helm install product-mongodb ./mongodb -f ./mongodb/values-product-mongodb.yaml
+
+helm uninstall order-mongodb 
+helm uninstall customer-mongodb 
+helm uninstall product-mongodb 
+
+
+__________|
+
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update
+helm install ingress-nginx ingress-nginx/ingress-nginx
+
+
+__________
+
+helm repo add bitnami https://charts.bitnami.com/bitnami
+helm repo update
+helm upgrade --install ingress-nginx ingress-nginx/ingress-nginx
+
+
+
+__________________________
+
+kubectl exec -it redis-b6669cd46-f5kfg   -- /bin/bash
+__________________________
+
+
+docker build -t borotriestocode/product-service:latest ./src/product-service
+docker push borotriestocode/product-service:latest
+
+docker build -t borotriestocode/order-service:latest ./src/order-service
+docker push borotriestocode/order-service:latest
+
+docker build -t borotriestocode/customer-service:latest ./src/customer-service
+docker push borotriestocode/customer-service:latest
+
+docker build -t borotriestocode/aggregator-service:latest ./src/aggregator-service
+docker push borotriestocode/aggregator-service:latest
+

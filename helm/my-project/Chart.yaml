@@ -1,0 +1,37 @@
+apiVersion: v2
+name: my-project
+version: 1.0.0
+dependencies:
+  - name: mongodb
+    version: 1.0.0
+    repository: file://charts/mongodb
+    alias: order-mongodb
+  - name: mongodb
+    version: 1.0.0
+    repository: file://charts/mongodb
+    alias: customer-mongodb
+  - name: mongodb
+    version: 1.0.0
+    repository: file://charts/mongodb
+    alias: product-mongodb
+  - name: kafka
+    version: 1.0.0
+    repository: file://charts/kafka
+  - name: kafka-ui
+    version: 1.0.0
+    repository: file://charts/kafka-ui
+  - name: redis
+    version: 1.0.0
+    repository: file://charts/redis
+  - name: customer-service
+    version: 1.0.0
+    repository: file://charts/customer-service
+  - name: product-service
+    version: 1.0.0
+    repository: file://charts/product-service
+  - name: aggregator-service
+    version: 1.0.0
+    repository: file://charts/aggregator-service
+  - name: order-service
+    version: 1.0.0
+    repository: file://charts/order-service

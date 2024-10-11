@@ -1,0 +1,33 @@
+dependencies:
+- name: mongodb
+  repository: file://charts/mongodb
+  version: 1.0.0
+- name: mongodb
+  repository: file://charts/mongodb
+  version: 1.0.0
+- name: mongodb
+  repository: file://charts/mongodb
+  version: 1.0.0
+- name: kafka
+  repository: file://charts/kafka
+  version: 1.0.0
+- name: kafka-ui
+  repository: file://charts/kafka-ui
+  version: 1.0.0
+- name: redis
+  repository: file://charts/redis
+  version: 1.0.0
+- name: customer-service
+  repository: file://charts/customer-service
+  version: 1.0.0
+- name: product-service
+  repository: file://charts/product-service
+  version: 1.0.0
+- name: aggregator-service
+  repository: file://charts/aggregator-service
+  version: 1.0.0
+- name: order-service
+  repository: file://charts/order-service
+  version: 1.0.0
+digest: sha256:22412d1e68d2ac25f944732f8d21bc0604f67d67d96ca1e395a7ecf318604702
+generated: "2024-07-03T14:53:24.5086299+03:00"

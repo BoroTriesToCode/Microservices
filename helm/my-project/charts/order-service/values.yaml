@@ -1,0 +1,26 @@
+replicaCount: 1
+
+image:
+  repository: your-repo/order-service
+  pullPolicy: IfNotPresent
+  tag: latest
+
+service:
+  type: NodePort
+  port: 3001
+  targetPort: 3001
+  nodePort: 30001
+
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}

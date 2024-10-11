@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aggregator-service
+  labels:
+    app: aggregator-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: aggregator-service
+  template:
+    metadata:
+      labels:
+        app: aggregator-service
+    spec:
+      containers:
+      - name: aggregator-service
+        image: borotriestocode/aggregator-service:latest
+        ports:
+        - containerPort: 3004
+        resources:
+          limits:
+            cpu: 100m
+            memory: 128Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
